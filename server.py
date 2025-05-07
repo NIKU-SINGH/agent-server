@@ -7,6 +7,7 @@ import json
 from typing import Dict
 from dotenv import load_dotenv
 from starlette.websockets import WebSocketState
+import uvicorn
 
 from voice_pipeline import (
     VoicePipelineAgent,
@@ -243,3 +244,14 @@ async def root():
             "ws_assistant": "/ws/assistant"
         }
     }
+
+if __name__ == "__main__":
+    # Get port from environment variable (Render sets this)
+    port = int(os.getenv("PORT", 8000))
+    # Bind to 0.0.0.0 to make the server publicly available
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=port,
+        log_level="info"
+    )
