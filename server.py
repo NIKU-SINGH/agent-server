@@ -54,8 +54,8 @@ if not CARTESIA_API_KEY:
 stt = create_stt("whisper", model_size="large")
 # llm = create_llm("openai",api_key=OPENAI_API_KEY, model="gpt-4o")
 llm = create_llm("llama",api_key=LLAMA_API_KEY)
-tts = create_tts("elevenlabs", 
-                 api_key=ELEVEN_LABS_API_KEY, 
+tts = create_tts("cartesia", 
+                 api_key=CARTESIA_API_KEY, 
                  default_language="en")  # Set initial default language
 vad = SimpleEndpointingVAD()
 turn_detector = EOUTurnDetector()
